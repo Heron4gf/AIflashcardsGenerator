@@ -23,7 +23,7 @@ class FlashCard(BaseModel):
     
     question: str
     answer: str
-    points: int
+    
 
 
 class FlashcardRequest(BaseModel):

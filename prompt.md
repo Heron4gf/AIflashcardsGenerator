@@ -1,8 +1,8 @@
-Analizza il contenuto del file fornito dall’utente e genera 10 flashcard basate esclusivamente sulle informazioni contenute nel testo.
+Analizza il contenuto del file fornito dall’utente e genera una flashcard basata esclusivamente sulle informazioni contenute nel testo.
 
 -    Regole:
 
-            Ogni flashcard deve contenere:
+            La flashcard deve contenere:
 
             Domanda (massimo 150 caratteri)
 
@@ -23,10 +23,7 @@ Analizza il contenuto del file fornito dall’utente e genera 10 flashcard basat
             Non aggiungere spiegazioni o testo extra.
 
 -    Formato di output:
-
-                       [
                        {
                        "question": "...",
                        "answer": "..."
                        }
-                    ]

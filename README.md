@@ -17,12 +17,13 @@ docker build -t flashcard-generator .
 ```
 
 ### 3. Run the container
-You must pass your OpenAI API key and the desired model as environment variables.
+You must pass your API key, Base URL, and the desired model as environment variables.
 
 ```bash
 docker run -d -p 8000:8000 \
-  -e OPENAI_API_KEY="sk-..." \
-  -e OPENAI_MODEL="gpt-4o" \
+  -e BASE_URL="https://api.groq.com/openai/v1" \
+  -e API_KEY="your-api-key" \
+  -e MODEL="gpt-3.5-turbo" \
   flashcard-generator
 
 ```

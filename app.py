@@ -29,6 +29,8 @@ class FlashcardRequest(BaseModel):
 def _read_prompt(file_path: str = "./prompt.md") -> str:
     with open(file_path, "r") as file:
         return file.read()
+    
+prompt = _read_prompt()
 
 async def _generate_flashcard_async(text: str, max_retries: int = 3) -> FlashCard:
     schema = FlashCard.model_json_schema()
@@ -40,7 +42,7 @@ async def _generate_flashcard_async(text: str, max_retries: int = 3) -> FlashCar
                 messages=[
                     {
                         "role": "system",
-                        "content": _read_prompt()
+                        "content": prompt
                     },
                     {
                         "role": "user",
@@ -82,5 +84,5 @@ async def _process_batch(texts: List[str]) -> List[FlashCard]:
     return valid_flashcards
 
 @app.post("/generate", response_model=List[FlashCard])
-def create_flashcards(payload: FlashcardRequest):
-    return asyncio.run(_process_batch(payload.texts))
+async def create_flashcards(payload: FlashcardRequest):
+    return await _process_batch(payload.texts)

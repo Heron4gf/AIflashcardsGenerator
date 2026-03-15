@@ -28,6 +28,21 @@ docker run -d -p 8000:8000 \
 
 ```
 
+### 4. (Optional) Run with Docker Compose
+You can also run the service with `docker-compose.yml`.
+
+```bash
+docker compose up --build -d
+```
+
+The service reads these environment variables:
+
+| Variable | Description | Default |
+| --- | --- | --- |
+| `BASE_URL` | OpenAI-compatible API base URL | `http://localhost:8000` (from compose file) |
+| `API_KEY` | API key for the selected provider | _none_ |
+| `MODEL` | Model name used for generation | `gpt-5-nano` (compose) / `gpt-3.5-turbo` (app fallback) |
+
 ## API Documentation
 ### `POST /generate` Endpoint
 
@@ -59,8 +74,7 @@ Returns a JSON list of flashcard objects.
 [
   {
     "question": "Generated question?",
-    "answer": "Generated answer...",
-    "points": 1
+    "answer": "Generated answer..."
   }
 ]
 ```

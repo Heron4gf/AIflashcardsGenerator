@@ -90,3 +90,5 @@ curl -X POST "http://localhost:8000/generate" \
 ### Windows Command Prompt (cmd)
 ```cmd
 curl -X POST "http://localhost:8000/generate" -H "Content-Type: application/json" -d "{\"texts\": [\"What is Python?\", \"Explain Docker\"]}"
+
+> Nota: parte di questo progetto è stata sviluppata con il supporto di strumenti di intelligenza artificiale.
